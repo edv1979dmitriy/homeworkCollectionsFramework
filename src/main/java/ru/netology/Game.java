@@ -1,20 +1,20 @@
 package ru.netology;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Game {
 
-    public List<Player> players = new ArrayList<>();
+//    public List<Player> players = new ArrayList<>();
+    public HashMap<String, Player> players = new HashMap<>();
 
-    public void registered(Player player) {
-        players.add(player);
+    public void registered(String name, Player player) {
+        players.put(name, player);
     }
 
     public void checkRegistered(String name) {
         String noname = null;
-        for (Player player : players) {
-            if (player.getName().equals(name)) {
+        for (String player : players.keySet()) {
+            if (player.equals(name)) {
                 noname = name;
             }
         }
@@ -25,8 +25,9 @@ public class Game {
 
     public int getStrengthPlayer(String name) {
         int strength = 0;
-        for (Player player : players) {
-            if (player.getName().equals(name)) {
+        for (String map : players.keySet()) {
+            if (map.equals(name)) {
+                Player player = players.get(name);
                 strength = player.getStrength();
             }
         }
