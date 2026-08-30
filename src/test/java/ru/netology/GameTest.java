@@ -15,9 +15,9 @@ public class GameTest {
 
     @BeforeEach
     public void add() {
-        manager.registered(player1);
-        manager.registered(player2);
-        manager.registered(player3);
+        manager.registered("Альфа",player1);
+        manager.registered("Бета",player2);
+        manager.registered("Гамма",player3);
     }
 
     @Test
