@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class Game {
 
-//    public List<Player> players = new ArrayList<>();
     public HashMap<String, Player> players = new HashMap<>();
 
     public void registered(String name, Player player) {
@@ -12,26 +11,25 @@ public class Game {
     }
 
     public void checkRegistered(String name) {
-        String noname = null;
+        String registeredPlayer = null;
         for (String player : players.keySet()) {
             if (player.equals(name)) {
-                noname = name;
+                registeredPlayer = name;
             }
         }
-        if (noname == null) {
+        if (registeredPlayer == null) {
             throw new NotRegisteredException(" Игрок " + name + " не зарегистрирован");
         }
     }
 
     public int getStrengthPlayer(String name) {
-        int strength = 0;
         for (String map : players.keySet()) {
             if (map.equals(name)) {
                 Player player = players.get(name);
-                strength = player.getStrength();
+                return player.getStrength();
             }
         }
-        return strength;
+        return -1;
     }
 
     public int round(String playerName1, String playerName2) {

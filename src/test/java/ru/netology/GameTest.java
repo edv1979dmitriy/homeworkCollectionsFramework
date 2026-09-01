@@ -21,9 +21,16 @@ public class GameTest {
     }
 
     @Test
-    public void strengthPlayerTest() {
+    public void strengthPlayerTestRegisteredPlayer() {
         int expected = 200;
         int actual = manager.getStrengthPlayer("Бета");
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void strengthPlayerTestNoRegisteredPlayer() {
+        int expected = -1;
+        int actual = manager.getStrengthPlayer("Дельта");
         Assertions.assertEquals(expected, actual);
     }
 
