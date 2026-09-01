@@ -12,25 +12,24 @@ public class Game {
     }
 
     public void checkRegistered(String name) {
-        String noname = null;
+        String registeredPlayer = null;
         for (Player player : players) {
             if (player.getName().equals(name)) {
-                noname = name;
+                registeredPlayer = name;
             }
         }
-        if (noname == null) {
+        if (registeredPlayer == null) {
             throw new NotRegisteredException(" Игрок " + name + " не зарегистрирован");
         }
     }
 
     public int getStrengthPlayer(String name) {
-        int strength = 0;
         for (Player player : players) {
             if (player.getName().equals(name)) {
-                strength = player.getStrength();
+                return player.getStrength();
             }
         }
-        return strength;
+        return -1;
     }
 
     public int round(String playerName1, String playerName2) {
